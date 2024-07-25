@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: TypeService
+  config:
+    import: optional:configserver:http://localhost:6666

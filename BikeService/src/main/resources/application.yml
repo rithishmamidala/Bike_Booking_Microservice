@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: BikeService
+  config:
+    import: optional:configserver:http://localhost:6666

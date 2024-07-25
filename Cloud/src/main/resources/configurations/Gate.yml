@@ -1,0 +1,33 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8222
+
+
+spring:
+  application:
+    name: Gate
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: BikeService
+          uri: http://localhost:9091
+          predicates:
+            - Path=/user/**
+        - id: TypeService
+          uri: http://localhost:9092
+          predicates:
+            - Path=/type/**
+        - id: PaymentService
+          uri: http://localhost:9093
+          predicates:
+            - Path=/payment/**
+        - id: Gate
+          uri: http://localhost:9094
+          predicates:
+            - Path=/cont/**
+
